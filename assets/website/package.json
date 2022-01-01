@@ -1,0 +1,25 @@
+{
+    "devDependencies": {
+        "@symfony/webpack-encore": "^1.6.1",
+        "autoprefixer": "^10.4.0",
+        "postcss": "^8.3.11",
+        "postcss-import": "^14.0.2",
+        "postcss-loader": "^6.2.0",
+        "regenerator-runtime": "^0.13.2",
+        "tailwindcss": "^2.2.19",
+        "terser-webpack-plugin": "^2.3.4",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@tailwindcss/aspect-ratio": "^0.3.0",
+        "core-js": "^3.19.1"
+    }
+}
