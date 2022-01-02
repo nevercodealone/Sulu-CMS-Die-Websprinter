@@ -59,7 +59,8 @@
             </div>
         </div>
         <div class="w-full lg:w-3/5 relative">
-            <img class="lg:absolute inset-0 h-full w-full object-cover object-center" src="https://cdn.tuk.dev/assets/components/111220/Hero9/header.png" alt="Senator of America Jessica Geller" role="img" />
+            {% set source = content.image[0].formats['hero'] %}
+            <img class="lg:absolute inset-0 h-full w-full object-cover object-center" src="{{ source }}" alt="{{ content.headline }}" role="img" />
         </div>
     </div>
     <nav>

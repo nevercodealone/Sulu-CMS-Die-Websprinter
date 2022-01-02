@@ -32,6 +32,15 @@
                             <param name="ui_color" value="#ffcc00"/>
                         </params>
                     </property>
+                    <property name="image" type="media_selection" maxOccurs="1">
+                        <meta>
+                            <title>Image</title>
+                        </meta>
+                        <params>
+                            <param name="types" value="image"/>
+                        </params>
+                    </property>
+
                 </properties>
             </type>
         </types>
