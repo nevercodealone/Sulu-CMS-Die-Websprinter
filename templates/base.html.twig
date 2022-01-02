@@ -15,7 +15,7 @@
     {% endblock %}
 
     {% block style %}
-        <link rel="stylesheet" href="/build/website/tailwind.css">
+        <link rel="stylesheet" href="/build/tailwind.css">
     {% endblock %}
 </head>
 <body>
@@ -303,7 +303,7 @@
 </div>
 
     {% block javascripts %}
-        <script src="/build/website/app.js"></script>
+        {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </body>
 </html>
