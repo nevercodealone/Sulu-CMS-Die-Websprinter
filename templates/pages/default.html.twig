@@ -1,7 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <h1>{{ content.title }}</h1>
-
-    {{ content.article|raw }}
+    {% if content.blocks|default([])|length %}
+        {% for block in content.blocks %}
+            {% include 'includes/blocks/' ~ block.type ~ '.html.twig' with {
+                content: block,
+            } only %}
+        {% endfor %}
+    {% endif %}
 {% endblock %}
