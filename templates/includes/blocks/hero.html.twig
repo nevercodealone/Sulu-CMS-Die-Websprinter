@@ -1,51 +1,5 @@
 
 <div class="container mx-auto">
-    <nav class="lg:hidden">
-        <div class="flex py-2 justify-between items-center px-4">
-            <div>
-                <img src="https://cdn.tuk.dev/assets/components/111220/Hero9/logo.png" alt="American Flag Star" role="img" />
-            </div>
-            <div class="visible flex items-center">
-                <button id="open" onclick="MenuHandler(true)" class="xl:hidden focus:outline-none focus:ring-2 focus:ring-gray-600">
-                    <img onclick="MenuHandler(true)" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_multiple_ctas_with_image_and_menu-svg1.svg" alt="menu handler"/>
-
-                </button>
-                <ul id="list" class="hidden p-2 border-r bg-white absolute rounded top-0 left-0 right-0 shadow mt-16 md:mt-16">
-                    <li class="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                        <a href="javascript:void(0)" class="ml-2 focus:outline-none focus:ring-2 focus:ring-gray-600">
-                            <span class="font-bold">Home</span>
-                        </a>
-                    </li>
-                    <li class="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onclick="dropdownHandler(this)">
-                        <a href="javascript:void(0)" class="ml-2 focus:outline-none focus:ring-2 focus:ring-gray-600">
-                            <span class="font-bold">Donations</span>
-                        </a>
-                    </li>
-                    <li class="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
-                        <a href="javascript:void(0)" class="ml-2 focus:outline-none focus:ring-2 focus:ring-gray-600">
-                            <span class="font-bold">Events</span>
-                        </a>
-                    </li>
-                    <li class="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onclick="dropdownHandler(this)">
-                        <a href="javascript:void(0)" class="ml-2 focus:outline-none focus:ring-2 focus:ring-gray-600">
-                            <span class="font-bold">Blog</span>
-                        </a>
-                    </li>
-                    <li class="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal pt-2 pb-4 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onclick="dropdownHandler(this)">
-                        <a href="javascript:void(0)" class="ml-2 focus:outline-none focus:ring-2 focus:ring-gray-600">
-                            <span class="font-bold">About Us</span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="xl:hidden">
-                    <button id="close" class="hidden close-m-menu focus:outline-none focus:ring-2 focus:ring-gray-600" onclick="MenuHandler(false)">
-                        <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_multiple_ctas_with_image_and_menu-svg2.svg" alt="close"/>
-
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
     <div class="flex justify-center w-full px-16">
         <img src="https://i.ibb.co/5kw5jQn/VOTE-GELLER.png" alt="VOTE GELLER" srcset="" />
     </div>
@@ -54,52 +8,23 @@
             <h1 class="text-3xl font-semibold lg:w-10/12">{{ content.headline }}</h1>
             <div class="py-6 text-lg">{{ content.description|raw }}</div>
             <div class="flex items-center">
-                <button class="hover:opacity-90 py-3 px-4 bg-red-600 text-sm mr-3 uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">Who is Jessica?</button>
-                <button class="hover:opacity-90 py-3 px-4 bg-indigo-700 text-sm uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700">The Plan</button>
+                {% if content.url is defined and content.url is not empty %}
+                    <a href="{{ content.url }}" target="_blank" class="hover:opacity-90 py-3 px-4 bg-red-600 text-sm mr-3 uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">
+                        {{ content.urlText }}
+                    </a>
+                {% endif %}
+                {% if content.buttonText is defined and content.buttonText is not empty %}
+                    <sulu-link href="{{ content.buttonLink }}" class="hover:opacity-90 py-3 px-4 bg-indigo-700 text-sm uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700">
+                        {{ content.buttonText }}
+                    </sulu-link>
+                {% endif %}
             </div>
         </div>
         <div class="w-full lg:w-3/5 relative">
             {% set source = content.image[0].formats['hero'] %}
-            <img class="lg:absolute inset-0 h-full w-full object-cover object-center" src="{{ source }}" alt="{{ content.headline }}" role="img" />
+            <img class="lg:absolute inset-0 h-full w-full object-cover object-bottom" src="{{ source }}" alt="{{ content.headline }}" role="img" />
         </div>
     </div>
-    <nav>
-        <div class="px-4 xl:px-0 hidden lg:flex items-center justify-between w-full py-5 border-b border-gray-200">
-            <div class="flex items-center">
-                <div>
-                    <div>
-                        <img src="https://cdn.tuk.dev/assets/components/111220/Hero9/logo.png" alt="American flag Star" role="img" />
-                    </div>
-                </div>
-                <div class="flex items-center pl-6">
-                    <div class="text-sm font-medium cursor-pointer text-red-600">
-                        <a href="javascript:void(0)" class="focus:outline-none focus:ring-2 focus:ring-indigo-900">Home</a>
-                    </div>
-                    <div class="text-sm font-normal cursor-pointer text-indigo-900 hover:text-red-600 pl-8">
-                        <a href="javascript:void(0)" class="focus:outline-none focus:ring-2 focus:ring-indigo-900">Donations</a>
-                    </div>
-                    <div class="text-sm font-normal cursor-pointer text-indigo-900 hover:text-red-600 pl-8">
-                        <a href="javascript:void(0)" class="focus:outline-none focus:ring-2 focus:ring-indigo-900">Events</a>
-                    </div>
-                    <div class="text-sm font-normal cursor-pointer text-indigo-900 hover:text-red-600 pl-8">
-                        <a href="javascript:void(0)" class="focus:outline-none focus:ring-2 focus:ring-indigo-900">Blog</a>
-                    </div>
-                    <div class="text-sm font-normal cursor-pointer text-indigo-900 hover:text-red-600 pl-8">
-                        <a href="javascript:void(0)" class="focus:outline-none focus:ring-2 focus:ring-indigo-900">About Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="flex items-center justify-between w-1/5 xl:w-1/6">
-                <button aria-label="click to search" role="button" class="focus:outline-none focus:ring-2 focus:ring-gray-600">
-                    <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_multiple_ctas_with_image_and_menu-svg3.svg" alt="search"/>
-
-                </button>
-                <div>
-                    <button class="hover:opacity-90 py-3 px-4 bg-red-600 text-sm uppercase text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">Donate Now</button>
-                </div>
-            </div>
-        </div>
-    </nav>
 </div>
 <style>
     .top-100 {
