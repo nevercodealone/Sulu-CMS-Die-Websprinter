@@ -2,10 +2,15 @@
 <formats xmlns="http://schemas.sulu.io/media/formats"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
-
+    <format key="logo">
+        <meta>
+            <title lang="en">Logo</title>
+        </meta>
+        <scale x="45" y="45"/>
+    </format>
     <format key="hero">
         <meta>
-            <title lang="en"></title>
+            <title lang="en">Hero</title>
         </meta>
         <scale x="680" y="345"/>
     </format>
