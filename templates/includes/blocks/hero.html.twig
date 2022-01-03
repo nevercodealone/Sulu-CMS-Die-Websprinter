@@ -1,0 +1,48 @@
+
+<div class="container mx-auto">
+    <div class="flex justify-center w-full px-16">
+        <img src="https://i.ibb.co/5kw5jQn/VOTE-GELLER.png" alt="VOTE GELLER" srcset="" />
+    </div>
+    <div class="lg:flex lg:mt-6 xl:-mt-6">
+        <div class="w-full lg:w-2/5 bg-indigo-800 py-10 px-6 xl:py-24 xl:px-8 text-white">
+            <h1 class="text-3xl font-semibold lg:w-10/12">{{ content.headline }}</h1>
+            <div class="py-6 text-lg">{{ content.description|raw }}</div>
+            <div class="flex items-center">
+                {% if content.url is defined and content.url is not empty %}
+                    <a href="{{ content.url }}" target="_blank" class="hover:opacity-90 py-3 px-4 bg-red-600 text-sm mr-3 uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">
+                        {{ content.urlText }}
+                    </a>
+                {% endif %}
+                {% if content.buttonText is defined and content.buttonText is not empty %}
+                    <sulu-link href="{{ content.buttonLink }}" class="hover:opacity-90 py-3 px-4 bg-indigo-700 text-sm uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700">
+                        {{ content.buttonText }}
+                    </sulu-link>
+                {% endif %}
+            </div>
+        </div>
+        <div class="w-full lg:w-3/5 relative">
+            {% set source = content.image[0].formats['hero'] %}
+            <img class="lg:absolute inset-0 h-full w-full object-cover object-bottom" src="{{ source }}" alt="{{ content.headline }}" role="img" />
+        </div>
+    </div>
+</div>
+<style>
+    .top-100 {
+        animation: slideDown 0.5s ease-in-out;
+    }
+    @keyframes slideDown {
+        0% {
+            top: -50%;
+        }
+        100% {
+            top: 0;
+        }
+    }
+    * {
+        outline: none !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+    }
+</style>
+
+
